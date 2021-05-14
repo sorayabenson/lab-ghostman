@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import style from './style.css'
 
 const Controls = ({ url, json, onUrlChange, onMethodChange, onJsonChange, onSubmit }) => {
+    const jsonPlaceholder = '{ \n   "send": "raw", \n   "json": "here" \n}'
+
     return (
         <section
             className={style.controls}
@@ -27,7 +29,8 @@ const Controls = ({ url, json, onUrlChange, onMethodChange, onJsonChange, onSubm
                         name='method' 
                         value='get' 
                         id='get' 
-                        onChange={onMethodChange}/>
+                        onChange={onMethodChange}
+                        defaultChecked/>
                     <label 
                         className={style.radioLabel} 
                         htmlFor='get' 
@@ -72,6 +75,7 @@ const Controls = ({ url, json, onUrlChange, onMethodChange, onJsonChange, onSubm
                     value={json}
                     onChange={onJsonChange}
                     className={style.jsonText}
+                    placeholder={jsonPlaceholder}
                 >
                 </textarea>
 

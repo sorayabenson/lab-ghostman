@@ -12,6 +12,7 @@ exports[`Ghostman component renders Ghostman 1`] = `
 
 exports[`Ghostman component renders Ghostman 2`] = `
 <input
+  checked=""
   id="get"
   name="method"
   type="radio"
@@ -50,6 +51,10 @@ exports[`Ghostman component renders Ghostman 6`] = `
 <textarea
   aria-label="json-input"
   class="jsonText"
+  placeholder="{ 
+   \\"send\\": \\"raw\\", 
+   \\"json\\": \\"here\\" 
+}"
 >
   yikes!
 </textarea>
