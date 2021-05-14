@@ -8,7 +8,7 @@ export default class Ghostman extends Component {
     state = {
         loading: true,
         url: '',
-        method: '',
+        method: 'get',
         json: '',
         results: '',
         history: [],
@@ -18,20 +18,29 @@ export default class Ghostman extends Component {
         this.setState({
             loading: false
         })
+        console.log(this.state)
     }
 
     handleUrlChange = (e) => {
-        this.setState({ url: e.target.value })
+        this.setState({ url: e.target.value }) 
+    }
+
+    handleMethodChange = (e) => {
+        this.setState({ method: e.target.value })
+        console.log(this.state.method)
+    }
+
+    handleJsonChange = (e) => {
+        this.setState({ json: e.target.value })
+        console.log(this.state.json)
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
     }
 
-
-    
     render() {
-        const { loading, url, method, json, results, history } = this.state;
+        const { loading, url,  json, results, history } = this.state;
 
         if (loading) return <Spinner />
 
@@ -39,7 +48,10 @@ export default class Ghostman extends Component {
             <>
                 <Controls 
                     url={url}
+                    json={json}
                     onUrlChange={this.handleUrlChange}
+                    onMethodChange={this.handleMethodChange}
+                    onJsonChange={this.handleJsonChange}
                     onSubmit={this.handleSubmit}
                 />
             </>

@@ -20,10 +20,10 @@ body, html {
     color: ivory;
 }
 
-.root {
+/* .root {
     width: 100%;
     background: coral;
-}
+} */
 
 header {
     width: 100%;
@@ -91,11 +91,103 @@ h2 {
     padding: 0.5rem;
 }
 
+form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .url {
     height: 1.8rem;
-    /* width: 75%; */
+    width: 100%;
     margin: 0;
+    padding: 0.1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 2px ivory solid;
+    border-radius: 2px;
+}
+
+.radios {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0;
+    background: lightcoral;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+.radioLabel {
+    width: 5rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: ivory 2px solid;
+    border-radius: 2px;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    box-shadow: ivory -6px 6px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+}
+
+.radioLabel:hover {
+    color: rgb(121, 255, 210);
+}
+
+.radioLabel:active {
+    border: rgb(121, 255, 210) 2px solid;
+    box-shadow: rgb(121, 255, 210) -6px 6px;
+}
+
+input[type='radio']:checked + .radioLabel {
+    color: rgb(121, 255, 210);
+    border: rgb(121, 255, 210) 2px solid;
+    box-shadow: rgb(121, 255, 210) -6px 6px;
+}
+
+.jsonText {
+    width: 100%;
+    min-height: 8rem;
     padding: 0.1rem;
     border: 2px ivory solid;
     border-radius: 2px;
+}
+
+button {
+    height: 30px;
+    background: ivory;
+    color: rgb(27, 27, 27);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border: ivory 3px solid;
+    border-radius: 5px;
+    margin: 1rem;
+}
+
+button:hover {
+    background-color: rgb(121, 255, 210);
+    border: ivory 3px solid;
+    border-radius: 5px;
+}
+
+button:focus {
+    background: rgb(27, 27, 27);
+    color: ivory;
+    border: rgb(121, 255, 210) 3px solid;
+    border-radius: 5px;
 }
