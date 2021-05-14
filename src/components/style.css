@@ -20,11 +20,17 @@ body, html {
     color: ivory;
 }
 
+.root {
+    width: 100%;
+    background: coral;
+}
+
 header {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     transition: 5s ease-in-out;
 }
@@ -71,4 +77,25 @@ h2 {
     100% {
         background-image: url('../assets/halo-100.png');
     }
+}
+
+.controls {
+    width: 100%;
+    height: auto;
+    background: chartreuse;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.url {
+    height: 1.8rem;
+    /* width: 75%; */
+    margin: 0;
+    padding: 0.1rem;
+    border: 2px ivory solid;
+    border-radius: 2px;
 }

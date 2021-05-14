@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ghostman component renders Ghostman 1`] = `
+<input
+  aria-label="api-url"
+  class="url"
+  placeholder="http://type-api-url-here.com"
+  type="url"
+  value="https://personal-ghosts.herokuapp.com/ghosts/"
+/>
+`;
