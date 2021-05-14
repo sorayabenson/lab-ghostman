@@ -35,34 +35,35 @@ export default class Ghostman extends Component {
         this.setState({ json: e.target.value }, () => console.log(this.state.json))
     }
 
-    handleSubmit = async (e) => {
-        const { url, json, results, method } = this.state;
-        e.preventDefault();
+    refreshResults = () => {
+        console.log(this.state.method, this.state.results)
+    }
 
-        //if statement determines by method which service to use
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const { url, json } = this.state;
+        this.setState({ loading: true });
+        
+        //if statement determines by method which service to send the url and json to
         if (this.state.method === 'get') {
             let results = await getApi(url);
-            console.log(method, results)
-            // return results;
+            this.setState({ results: results });
         } else if (this.state.method === 'post') {
             let results = await postApi(url, json);
-            console.log(method, results)
-            // return results;
+            this.setState({ results: results });
         } else if (this.state.method === 'put') {
-            let results = await putApi(url, json)
-            console.log(method, results)
-            // return results;
+            let results = await putApi(url, json);
+            this.setState({ results: results });
         } else {
-            let results = await deleteApi(url)
-            console.log(method, results)
-            // return results;
+            let results = await deleteApi(url);
+            this.setState({ results: results });
         }
 
-        //sends url and json to service
-
-        //returns results
+        this.setState({ loading: false });
         
-        //updates results    
+        //updates results
+        this.refreshResults();    
         
         //makes an object of method, url, json and pushes it to history array
 

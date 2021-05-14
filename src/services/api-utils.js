@@ -5,14 +5,33 @@ export const getApi = async (url) => {
     return data;
 }
 
-export const postApi = (url, json) => {
-    console.log('post', url, json)
+export const postApi = async (url, jsonBody) => {
+    const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: jsonBody
+    })
+    const data = await res.json();
+    
+    return data;
 }
 
-export const putApi = (url, json) => {
-    console.log('put', url, json)
+export const putApi = async (url, jsonBody) => {
+    const res = await fetch(url, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: jsonBody
+    })
+    const data = await res.json();
+
+    return data;
 }
 
-export const deleteApi = (url) => {
-    console.log('delete', url)
+export const deleteApi = async (url) => {
+    const res = await fetch(url, {
+        method: 'DELETE'
+    })
+    const data = await res.json();
+
+    return data;
 }
