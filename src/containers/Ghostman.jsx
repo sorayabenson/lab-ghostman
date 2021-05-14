@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../components/style.css';
 import Spinner from '../components/Spinner';
 import Controls from '../components/Controls';
+import { getApi, postApi, putApi, deleteApi } from '../services/api-utils';
 
 
 export default class Ghostman extends Component {
@@ -22,7 +23,7 @@ export default class Ghostman extends Component {
     }
 
     handleUrlChange = (e) => {
-        this.setState({ url: e.target.value }) 
+        this.setState({ url: e.target.value }, () => console.log(this.state.url)) 
     }
 
     handleMethodChange = (e) => {
@@ -31,13 +32,31 @@ export default class Ghostman extends Component {
     }
 
     handleJsonChange = (e) => {
-        this.setState({ json: e.target.value })
+        this.setState({ json: e.target.value }, () => console.log(this.state.json))
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
+        const { url, json, results, method } = this.state;
         e.preventDefault();
 
         //if statement determines by method which service to use
+        if (this.state.method === 'get') {
+            let results = await getApi(url);
+            console.log(method, results)
+            // return results;
+        } else if (this.state.method === 'post') {
+            let results = await postApi(url, json);
+            console.log(method, results)
+            // return results;
+        } else if (this.state.method === 'put') {
+            let results = await putApi(url, json)
+            console.log(method, results)
+            // return results;
+        } else {
+            let results = await deleteApi(url)
+            console.log(method, results)
+            // return results;
+        }
 
         //sends url and json to service
 
