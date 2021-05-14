@@ -1,16 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import style from './style.css'
 
-const Spinner = props => {
+const Spinner = () => {
     return (
-        <div>
-            
+        <div className={style.spinner}>
+            <h2>your ghosts will be with you shortly</h2>
         </div>
     )
-}
-
-Spinner.propTypes = {
-
 }
 
 export default Spinner
