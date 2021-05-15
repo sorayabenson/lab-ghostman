@@ -5,7 +5,7 @@ import Ghostman from './Ghostman';
 
 describe('Ghostman component', () => {
   
-  it('renders Ghostman', () => {
+  it('renders Ghostman', async () => {
     render(<Ghostman />);
     
     const url = screen.getByRole('textbox', { name: 'api-url' })
@@ -41,17 +41,22 @@ describe('Ghostman component', () => {
     userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/1/')
     //getRoute test
     userEvent.click(getRadio)
-    userEvent.click(button);
+    await userEvent.click(button);
     screen.getByText('your ghosts will be with you shortly');
     //postRoute 
-    // const ghost = '{\n  "name": "Test Ghost",\n "img": "http://placekitten.com/g/200/200",\n  "description": "test test",\n "category_id": 1,\n "price": 8,\n "price_currency": "tests",\n  "trustworthy": false\n}'
-    // userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/')
-    // userEvent.type(jsonText, )
-    // userEvent.click(postRadio)
-    // userEvent.click(button);
+    userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/')
+    userEvent.type(jsonText, `{ghost}`)
+    userEvent.click(postRadio)
+    await userEvent.click(button);
     //putRoute test
-
+    userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/100')
+    userEvent.type(jsonText, `{ghost}`)
+    userEvent.click(putRadio)
+    await userEvent.click(button);
     //deleteRoute test
+    userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/100')
+    userEvent.click(deleteRadio)
+    await userEvent.click(button);
     
   });
 });

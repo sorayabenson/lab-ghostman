@@ -5,37 +5,49 @@ export const getApi = async (url) => {
 
         return data;
     } catch(err) {
-        return err;
+        return err.message;
     } 
 }
 
 export const postApi = async (url, jsonBody) => {
-    const res = await fetch(url, {
+    try {
+        const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: jsonBody
-    })
-    const data = await res.json();
+        })
+        const data = await res.json();
     
-    return data;
+        return data
+    } catch(err) {
+        return err.message;
+    }
 }
 
 export const putApi = async (url, jsonBody) => {
-    const res = await fetch(url, {
+    try {
+        const res = await fetch(url, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: jsonBody
-    })
-    const data = await res.json();
+        })
+        const data = await res.json();
 
-    return data;
+        return data;
+    } catch(err) {
+        return err.message;
+    }
 }
 
 export const deleteApi = async (url) => {
-    const res = await fetch(url, {
+    try {
+        const res = await fetch(url, {
         method: 'DELETE'
-    })
-    const data = await res.json();
+        })
+        const data = await res.json();
 
-    return data;
+        return data;
+    } catch(err) {
+        return err.message;
+    }
 }

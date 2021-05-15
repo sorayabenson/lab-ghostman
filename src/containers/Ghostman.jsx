@@ -3,6 +3,7 @@ import '../components/style.css';
 import Spinner from '../components/Spinner';
 import Controls from '../components/Controls';
 import { getApi, postApi, putApi, deleteApi } from '../services/api-utils';
+import Results from '../components/Results';
 
 
 export default class Ghostman extends Component {
@@ -11,7 +12,7 @@ export default class Ghostman extends Component {
         url: '',
         method: 'get',
         json: '',
-        results: '',
+        results: {},
         history: [],
     }
 
@@ -30,7 +31,7 @@ export default class Ghostman extends Component {
     }
 
     handleJsonChange = (e) => {
-        this.setState({ json: e.target.value })
+        this.setState({ json: e.target.value }, () => console.log(this.state.json))
     }
 
     refreshResults = () => {
@@ -74,7 +75,7 @@ export default class Ghostman extends Component {
         if (loading) return <Spinner />
 
         return (
-            <>
+            <main>
                 <Controls 
                     url={url}
                     json={json}
@@ -83,7 +84,9 @@ export default class Ghostman extends Component {
                     onJsonChange={this.handleJsonChange}
                     onSubmit={this.handleSubmit}
                 />
-            </>
+                <Results results={results}/>
+
+            </main>
         )
     }
 }
