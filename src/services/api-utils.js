@@ -1,8 +1,12 @@
 export const getApi = async (url) => {
-    const res = await fetch(url)
-    const data = await res.json();
+    try {
+        const res = await fetch(url)
+        const data = await res.json();
 
-    return data;
+        return data;
+    } catch(err) {
+        return err;
+    } 
 }
 
 export const postApi = async (url, jsonBody) => {

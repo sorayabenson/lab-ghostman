@@ -16,23 +16,21 @@ export default class Ghostman extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            loading: false
-        })
-        console.log(this.state)
+        this.setState({ loading: false })
     }
 
     handleUrlChange = (e) => {
-        this.setState({ url: e.target.value }, () => console.log(this.state.url)) 
+        this.setState({ url: e.target.value }) 
     }
 
     handleMethodChange = (e) => {
-        this.setState({ method: e.target.value }, () => console.log(this.state.method))
+        this.setState({ method: e.target.value })
+        // this.setState({ method: e.target.value }, () => console.log(this.state.method))
         //calling console.log after this.setState doesn't work because it is dependent state, so you must call it as a call back within this.setState to see the real update.
     }
 
     handleJsonChange = (e) => {
-        this.setState({ json: e.target.value }, () => console.log(this.state.json))
+        this.setState({ json: e.target.value })
     }
 
     refreshResults = () => {

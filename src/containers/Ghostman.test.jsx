@@ -8,8 +8,6 @@ describe('Ghostman component', () => {
   it('renders Ghostman', () => {
     render(<Ghostman />);
     
-    // screen.getByText('your ghosts will be with you shortly');
-
     const url = screen.getByRole('textbox', { name: 'api-url' })
     userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/')
     expect(url).toMatchSnapshot();
@@ -40,6 +38,20 @@ describe('Ghostman component', () => {
 
     const button = screen.getByRole('button', { name: 'submit' })
     expect(button).toMatchSnapshot();
+    userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/1/')
+    //getRoute test
+    userEvent.click(getRadio)
+    userEvent.click(button);
+    screen.getByText('your ghosts will be with you shortly');
+    //postRoute 
+    // const ghost = '{\n  "name": "Test Ghost",\n "img": "http://placekitten.com/g/200/200",\n  "description": "test test",\n "category_id": 1,\n "price": 8,\n "price_currency": "tests",\n  "trustworthy": false\n}'
+    // userEvent.type(url, 'https://personal-ghosts.herokuapp.com/ghosts/')
+    // userEvent.type(jsonText, )
+    // userEvent.click(postRadio)
+    // userEvent.click(button);
+    //putRoute test
+
+    //deleteRoute test
     
   });
 });
