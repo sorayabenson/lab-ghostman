@@ -62,7 +62,11 @@ export default class Ghostman extends Component {
         this.setState({ loading: false });
         
         //updates results
-        this.refreshResults();    
+        this.refreshResults();
+        
+        //regex to shape results: enter after [ enter + 4 spaces after { enter + 8 spaces after , enter + 4 spaces before } enter before ]
+        
+        //or use react-json-pretty library
         
         //makes an object of method, url, json and pushes it to history array
 
