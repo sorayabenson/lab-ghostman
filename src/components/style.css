@@ -237,3 +237,46 @@ button:focus {
     font-size: 0.9rem;
     line-height: 1.15rem;
 }
+
+ul {
+    width: 54%;
+    min-height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: rgb(121, 255, 210) 2px solid;
+    border-radius: 2px;
+    margin-top: 2rem;
+    padding: 1rem;
+    list-style: none;
+
+}
+
+li {
+    width: 75%;
+    min-height: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: ivory 2px solid;
+    border-radius: 2px;
+    margin: 0.5rem;
+    padding: 1rem;
+    box-shadow: ivory -6px 6px;
+}
+
+.historyH4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    margin-right: 0.4rem;
+    padding: 0;
+}
+
+.historyP {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}

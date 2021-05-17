@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import '../components/style.css';
 import Spinner from '../components/Spinner';
 import Controls from '../components/Controls';
-import { getApi, postApi, putApi, deleteApi } from '../services/api-utils';
+import HistoryList from '../components/HistoryList';
 import Results from '../components/Results';
-
+import { getApi, postApi, putApi, deleteApi } from '../services/api-utils';
 
 export default class Ghostman extends Component {
     state = {
@@ -41,8 +41,15 @@ export default class Ghostman extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
         
-        const { url, json } = this.state;
+        const { url, json, history, method } = this.state;
         this.setState({ loading: true });
+
+        const historyItem = {
+            method: method,
+            url: url
+        }
+
+        history.push(historyItem);
         
         //if statement determines by method which service to send the url and json to
         if (this.state.method === 'get') {
@@ -61,12 +68,7 @@ export default class Ghostman extends Component {
 
         this.setState({ loading: false });
         
-        //updates results
-        this.refreshResults();
-        
-        //regex to shape results: enter after [ enter + 4 spaces after { enter + 8 spaces after , enter + 4 spaces before } enter before ]
-        
-        //or use react-json-pretty library
+        console.log(this.state.history);
         
         //makes an object of method, url, json and pushes it to history array
 
@@ -89,6 +91,7 @@ export default class Ghostman extends Component {
                     onSubmit={this.handleSubmit}
                 />
                 <Results results={results}/>
+                <HistoryList history={history}/>
 
             </main>
         )
