@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ghostman component renders Ghostman 1`] = `
+<input
+  aria-label="api-url"
+  class="url"
+  placeholder="http://type-api-url-here.com"
+  type="url"
+  value="https://personal-ghosts.herokuapp.com/ghosts/"
+/>
+`;
+
+exports[`Ghostman component renders Ghostman 2`] = `
+<input
+  checked=""
+  id="get"
+  name="method"
+  type="radio"
+  value="get"
+/>
+`;
+
+exports[`Ghostman component renders Ghostman 3`] = `
+<input
+  id="post"
+  name="method"
+  type="radio"
+  value="post"
+/>
+`;
+
+exports[`Ghostman component renders Ghostman 4`] = `
+<input
+  id="put"
+  name="method"
+  type="radio"
+  value="put"
+/>
+`;
+
+exports[`Ghostman component renders Ghostman 5`] = `
+<input
+  id="delete"
+  name="method"
+  type="radio"
+  value="delete"
+/>
+`;
+
+exports[`Ghostman component renders Ghostman 6`] = `
+<textarea
+  aria-label="json-input"
+  class="jsonText"
+  placeholder="{ 
+   \\"send\\": \\"raw\\", 
+   \\"json\\": \\"here\\" 
+}"
+>
+  yikes!
+</textarea>
+`;
+
+exports[`Ghostman component renders Ghostman 7`] = `
+<pre
+  class="resultsText"
+>
+  {}
+</pre>
+`;
+
+exports[`Ghostman component renders Ghostman 8`] = `
+<ul
+  aria-label="history"
+/>
+`;
+
+exports[`Ghostman component renders Ghostman 9`] = `
+<button
+  aria-label="submit"
+>
+  submit
+</button>
+`;
