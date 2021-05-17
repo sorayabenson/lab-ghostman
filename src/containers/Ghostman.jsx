@@ -8,16 +8,12 @@ import { getApi, postApi, putApi, deleteApi } from '../services/api-utils';
 
 export default class Ghostman extends Component {
     state = {
-        loading: true,
+        loading: false,
         url: '',
         method: 'get',
         json: '',
         results: {},
         history: [],
-    }
-
-    componentDidMount() {
-        this.setState({ loading: false })
     }
 
     handleUrlChange = (e) => {
@@ -31,11 +27,7 @@ export default class Ghostman extends Component {
     }
 
     handleJsonChange = (e) => {
-        this.setState({ json: e.target.value }, () => console.log(this.state.json))
-    }
-
-    refreshResults = () => {
-        console.log(this.state.method, this.state.results)
+        this.setState({ json: e.target.value })
     }
 
     handleSubmit = async (e) => {
@@ -67,12 +59,7 @@ export default class Ghostman extends Component {
         }
 
         this.setState({ loading: false });
-        
-        console.log(this.state.history);
-        
-        //makes an object of method, url, json and pushes it to history array
-
-        //updates history
+  
     }
 
     render() {
@@ -92,7 +79,6 @@ export default class Ghostman extends Component {
                 />
                 <Results results={results}/>
                 <HistoryList history={history}/>
-
             </main>
         )
     }
