@@ -36,8 +36,10 @@ describe('Ghostman component', () => {
     userEvent.type(jsonText, 'yikes!');
     expect(jsonText).toMatchSnapshot();
 
-    screen.getByText('{}');
-    screen.getByRole('list', { name: 'history' });
+    const results = screen.getByText('{}');
+    expect(results).toMatchSnapshot();
+    const history = screen.getByRole('list', { name: 'history' });
+    expect(history).toMatchSnapshot();
 
     const button = screen.getByRole('button', { name: 'submit' });
     expect(button).toMatchSnapshot();

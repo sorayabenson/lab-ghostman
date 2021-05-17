@@ -61,6 +61,20 @@ exports[`Ghostman component renders Ghostman 6`] = `
 `;
 
 exports[`Ghostman component renders Ghostman 7`] = `
+<pre
+  class="resultsText"
+>
+  {}
+</pre>
+`;
+
+exports[`Ghostman component renders Ghostman 8`] = `
+<ul
+  aria-label="history"
+/>
+`;
+
+exports[`Ghostman component renders Ghostman 9`] = `
 <button
   aria-label="submit"
 >
